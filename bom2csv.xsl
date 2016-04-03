@@ -1,5 +1,6 @@
 <!--XSL style sheet to convert EESCHEMA XML Partlist Format to CSV BOM Format
-    Copyright (C) 2013, Stefan Helmert.
+    Copyright (C) 2013, Stefan Helmert 
+    with later changes by Andrew Baxter 2016
     GPL v2.
 
     Functionality:
@@ -22,9 +23,9 @@
 <!--
     @package
     Generate a Tab delimited list (csv file type).
-    One component per line
-    Fields are
-    Ref,Value, Footprint, Datasheet, Field5, Field4, price
+    Components are grouped by a set of unique fields, and sorted usefully.
+    Component references in the same group are aggregated, and a quantity field is added.
+    This assumes that you have fields 'Tolerance', 'Package', and 'Product code' as well as the standard fields. If you want to group on other custom fields, you'll need to edit this file accordingly.
 -->
 
 <!DOCTYPE xsl:stylesheet [
