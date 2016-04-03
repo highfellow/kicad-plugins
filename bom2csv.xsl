@@ -55,8 +55,8 @@
         <!-- all table entries -->
         <xsl:apply-templates select="components/comp[generate-id(.) = generate-id(key('groupon', concat(translate(@ref,'0123456789', ''), '|', value, '|', fields[@name = 'Tolerance'], '|', fields[@name = 'Package'], '|', fields[@name = 'Product code'])))]">
           <xsl:sort select="translate(@ref,'0123456789','')"/>
-          <xsl:sort select="translate(value,'0123456789','')"/>
-          <xsl:sort select="translate(value,'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_','')"/>
+          <xsl:sort select="translate(value,'0123456789.','')"/>
+          <xsl:sort select="translate(value,'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_','')" data-type="number"/>
           <xsl:sort select="fields/field[@name='Product code']"/>
         </xsl:apply-templates>
     </xsl:template>
